@@ -16,17 +16,16 @@ import static spark.Spark.get;
  return "Hello world.";
  }
  public static boolean Gelir_Gider(ArrayList<Integer> array, int maas,int kira,int hisse) {
-   int sum = 0;
+  boolean sonuc;
+  int a = 0;
    for(int d : array){
-       sum += d;
+       a += d;
    }
-    int gelir_toplam=maas+kira+hisse;
-    boolean sonuc;
-    if(gelir_toplam-sum>=0){
-        sonuc=true;
-    }else{
-        sonuc=false;
-    }
+  if(!array.isEmpty() && maas>=0 && kira>=0 && hisse>=0 && a>=0){
+      sonuc=true;        
+     }else{
+         sonuc=false;
+     } 
      return sonuc;
  }
 
@@ -65,19 +64,13 @@ import static spark.Spark.get;
    }
    int gelir_toplam_input=input2AsInt+input3AsInt+input4AsInt;
    if(result == true){
-        map.put("result", "Artan Para: "+(gelir_toplam_input-gider_toplam)+"");
+        map.put("result", "Kalan Para: "+(gelir_toplam_input-gider_toplam)+"");
 
    }else{
-        map.put("result", "Eksik Para: "+(gelir_toplam_input-gider_toplam)+"");
+        map.put("result", "Eksik Veri Girdiniz");
    }
-
-
-
  return new ModelAndView(map, "compute.mustache");
  }, new MustacheTemplateEngine());
-
-
-
 
  get("/compute",
  (rq, rs) -> {

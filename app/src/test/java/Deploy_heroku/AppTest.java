@@ -5,10 +5,51 @@ package Deploy_heroku;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 class AppTest {
+     
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
+
+     @Test
+    public void negativeParameter(){
+     ArrayList<Integer> inputList_test = new ArrayList<>();
+     inputList_test.add(23);
+     int maas_test=-5;
+     int kira_test=-3;
+     int hisse_test=-1;
+       assertFalse(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));       
+    }
+     @Test
+    public void trueParameter(){
+     ArrayList<Integer> inputList_test = new ArrayList<>();
+     inputList_test.add(23);
+     int maas_test=5;
+     int kira_test=12;
+     int hisse_test=11;
+       assertTrue(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));        
+    }
+
+     @Test
+    public void NullParameterArray(){
+     ArrayList<Integer> inputList_test = new ArrayList<>();     
+     int maas_test=5;
+     int kira_test=12;
+     int hisse_test=11;
+       assertFalse(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));        
+    }
+    @Test
+    public void negativeParameterArray(){
+     ArrayList<Integer> inputList_test = new ArrayList<>();
+     inputList_test.add(-23);
+     int maas_test=5;
+     int kira_test=12;
+     int hisse_test=11;
+      assertFalse(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));        
+    }
+
 }
