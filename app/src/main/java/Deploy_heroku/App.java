@@ -10,6 +10,8 @@ import static spark.Spark.get;
  import java.util.Map;
  import spark.ModelAndView;
  import spark.template.mustache.MustacheTemplateEngine;
+
+
  public class App
  {
  public String getGreeting() {
@@ -31,11 +33,8 @@ import static spark.Spark.get;
 
  public static void main(String[] args) {
  port(getHerokuAssignedPort());
- get("/", (req, res) -> "Hello, World");
 
-
-
-
+ get("/", (req, res) -> "Merhabalar Hoşgeldiniz Gelir Gider Hesaplamak için linke compute ekleyiniz..");
  post("/compute", (req, res) -> {
  String input1 = req.queryParams("input1");
  java.util.Scanner sc1 = new java.util.Scanner(input1);
@@ -65,7 +64,6 @@ import static spark.Spark.get;
    int gelir_toplam_input=input2AsInt+input3AsInt+input4AsInt;
    if(result == true){
         map.put("result", "Kalan Para: "+(gelir_toplam_input-gider_toplam)+"");
-
    }else{
         map.put("result", "Eksik Veri Girdiniz");
    }
