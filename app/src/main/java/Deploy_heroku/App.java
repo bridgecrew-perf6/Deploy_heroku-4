@@ -17,6 +17,7 @@ import static spark.Spark.get;
  public String getGreeting() {
  return "Hello world.";
  }
+ //Burada fonksiyonumuzu oluşturduk ve fonksiyonumuz boş değer aldığında false olarak dönüyor
  public static boolean Gelir_Gider(ArrayList<Integer> array, int maas,int kira,int hisse) {
   boolean sonuc;
   int a = 0;
@@ -30,11 +31,11 @@ import static spark.Spark.get;
      } 
      return sonuc;
  }
-
  public static void main(String[] args) {
  port(getHerokuAssignedPort());
-
+//Burası Proje ilk açıldığında açılan sayfa yazan bilgi
  get("/", (req, res) -> "Merhabalar Hoşgeldiniz Gelir Gider Hesaplamak için linke compute ekleyiniz..");
+ //Post kısmımız burası ve gönderilen veriler post metodu ile fonksiyonumuza gönderiliyor ve result olarak sayfaya bilgi veriyor
  post("/compute", (req, res) -> {
  String input1 = req.queryParams("input1");
  java.util.Scanner sc1 = new java.util.Scanner(input1);
@@ -46,9 +47,6 @@ import static spark.Spark.get;
  inputList.add(value);
  }
  sc1.close();
-
-
-
  String input2 = req.queryParams("input2").replaceAll("\\s","");
  int input2AsInt = Integer.parseInt(input2);
  String input3 = req.queryParams("input3").replaceAll("\\s","");
@@ -69,7 +67,7 @@ import static spark.Spark.get;
    }
  return new ModelAndView(map, "compute.mustache");
  }, new MustacheTemplateEngine());
-
+//Formun açılması için get metodu oluşturuldu.
  get("/compute",
  (rq, rs) -> {
  Map<String, String> map = new HashMap<String, String>();
@@ -83,6 +81,6 @@ import static spark.Spark.get;
  if (processBuilder.environment().get("PORT") != null) {
  return Integer.parseInt(processBuilder.environment().get("PORT"));
  }
- return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+ return 4567; //Proje Localde çalışırken bur port kullanılacak
  }
 }

@@ -14,7 +14,7 @@ class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
-
+     //Bu test parametrelerin negatif değer alamadığını gösteriyor
      @Test
     public void negativeParameter(){
      ArrayList<Integer> inputList_test = new ArrayList<>();
@@ -24,6 +24,7 @@ class AppTest {
      int hisse_test=-1;
        assertFalse(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));       
     }
+    //Bu test parametrelerin doğru bir şekilde çalıştığını test ediyor
      @Test
     public void trueParameter(){
      ArrayList<Integer> inputList_test = new ArrayList<>();
@@ -33,7 +34,7 @@ class AppTest {
      int hisse_test=11;
        assertTrue(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));        
     }
-
+    //Bu testte dizi boş olamaz test edilliyor
      @Test
     public void NullParameterArray(){
      ArrayList<Integer> inputList_test = new ArrayList<>();     
@@ -42,6 +43,7 @@ class AppTest {
      int hisse_test=11;
        assertFalse(App.Gelir_Gider(inputList_test,maas_test,kira_test,hisse_test));        
     }
+    //Bu testte dizinin içindeki değer 
     @Test
     public void negativeParameterArray(){
      ArrayList<Integer> inputList_test = new ArrayList<>();
